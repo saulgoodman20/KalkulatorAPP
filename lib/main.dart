@@ -32,6 +32,22 @@ class MyHomePage extends StatefulWidget {
 class MyAppState extends State<MyHomePage> {
   TextEditingController kontrolerLiczbyA = TextEditingController();
   TextEditingController kontrolerLiczbyB = TextEditingController();
+  double liczbaA = 0, liczbaB = 0, wynik = 0;
+
+  wyczysc() {
+    kontrolerLiczbyA.clear();
+    kontrolerLiczbyB.clear();
+  }
+
+  dodaj() {
+    setState(() {
+      liczbaA = double.parse(kontrolerLiczbyA.text);
+      liczbaB = double.parse(kontrolerLiczbyB.text);
+      wynik = liczbaA + liczbaB;
+
+      wyczysc();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +65,7 @@ class MyAppState extends State<MyHomePage> {
               ),
             ),
             Text(
-              "AAAAAAAAAAAAa",
+              "Wynik: $wynik",
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.black87,
@@ -84,7 +100,7 @@ class MyAppState extends State<MyHomePage> {
                 children: [
                   ElevatedButton(
                       onPressed: () {
-                        //button nacisniety
+                        dodaj();
                       },
                       child: Text("+")),
                   ElevatedButton(
