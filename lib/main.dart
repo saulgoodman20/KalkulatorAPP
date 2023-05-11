@@ -61,16 +61,19 @@ class MyAppState extends State<MyHomePage> {
             Center(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 5),
               ),
             ),
-            Text(
-              "Wynik: $wynik",
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.black87,
-                fontFamily: "Comic Sans MS",
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 25),
+              child: Text(
+                "Wynik: $wynik",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black87,
+                  fontFamily: "Comic Sans MS",
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Padding(
@@ -98,26 +101,55 @@ class MyAppState extends State<MyHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: ElevatedButton(
                       onPressed: () {
                         dodaj();
                       },
-                      child: Text("+")),
-                  ElevatedButton(
-                      onPressed: () {
-                        //button nacisniety
-                      },
-                      child: Text("-")),
-                  ElevatedButton(
-                      onPressed: () {
-                        //button nacisniety
-                      },
-                      child: Text("*")),
-                  ElevatedButton(
-                      onPressed: () {
-                        //button nacisniety
-                      },
-                      child: Text("/")),
+                      child: Text("+",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          //button nacisniety
+                        },
+                        child: Text("-",
+                            style: TextStyle(
+                              fontSize: 25,
+                            ))),
+                  ),
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          //button nacisniety
+                        },
+                        child: Text("*",
+                            style: TextStyle(
+                              fontSize: 25,
+                            ))),
+                  ),
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          //button nacisniety
+                        },
+                        child: Text("/",
+                            style: TextStyle(
+                              fontSize: 25,
+                            ))),
+                  ),
                 ],
               ),
             )
