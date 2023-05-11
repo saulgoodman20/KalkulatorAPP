@@ -30,6 +30,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyAppState extends State<MyHomePage> {
+  TextEditingController kontrolerLiczbyA = TextEditingController();
+  TextEditingController kontrolerLiczbyB = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,17 +48,8 @@ class MyAppState extends State<MyHomePage> {
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: TextField(
-                decoration: InputDecoration(
-                    label: Text("Podaj liczbe A"),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20))),
-              ),
-            ),
             Text(
-              "AAAAAAAAAAAA",
+              "AAAAAAAAAAAAa",
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.black87,
@@ -63,6 +57,54 @@ class MyAppState extends State<MyHomePage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: TextField(
+                controller: kontrolerLiczbyA,
+                decoration: InputDecoration(
+                    label: Text("Podaj liczbe A"),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20))),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: TextField(
+                controller: kontrolerLiczbyB,
+                decoration: InputDecoration(
+                    label: Text("Podaj liczbe B"),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20))),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        //button nacisniety
+                      },
+                      child: Text("+")),
+                  ElevatedButton(
+                      onPressed: () {
+                        //button nacisniety
+                      },
+                      child: Text("-")),
+                  ElevatedButton(
+                      onPressed: () {
+                        //button nacisniety
+                      },
+                      child: Text("*")),
+                  ElevatedButton(
+                      onPressed: () {
+                        //button nacisniety
+                      },
+                      child: Text("/")),
+                ],
+              ),
+            )
           ],
         ));
   }
