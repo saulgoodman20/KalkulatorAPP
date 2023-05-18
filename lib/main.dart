@@ -39,14 +39,46 @@ class MyAppState extends State<MyHomePage> {
     kontrolerLiczbyB.clear();
   }
 
-  dodaj() {
-    setState(() {
-      liczbaA = double.parse(kontrolerLiczbyA.text);
-      liczbaB = double.parse(kontrolerLiczbyB.text);
-      wynik = liczbaA + liczbaB;
+  dzialanie(String typ) {
+    var _wartoscA = double.tryParse(kontrolerLiczbyA.text);
+    var _wartoscB = double.tryParse(kontrolerLiczbyB.text);
 
-      wyczysc();
-    });
+    switch (typ) {
+      case "dodaj":
+        setState(() {
+          if (_wartoscA != null && _wartoscB != null) {
+            wynik = _wartoscA + _wartoscB;
+          }
+          wyczysc();
+        });
+        break;
+      case "odejmij":
+        setState(() {
+          if (_wartoscA != null && _wartoscB != null) {
+            wynik = _wartoscA - _wartoscB;
+          }
+          wyczysc();
+        });
+        break;
+      case "pomnoz":
+        setState(() {
+          if (_wartoscA != null && _wartoscB != null) {
+            wynik = _wartoscA * _wartoscB;
+          }
+          wyczysc();
+        });
+        break;
+      case "dziel":
+        setState(() {
+          if (_wartoscA != null && _wartoscB != null && _wartoscB != 0) {
+            wynik = _wartoscA / _wartoscB;
+            wyczysc();
+          } else if (_wartoscB == 0) {
+            kontrolerLiczbyB.clear();
+          }
+        });
+        break;
+    }
   }
 
   @override
@@ -106,7 +138,7 @@ class MyAppState extends State<MyHomePage> {
                     height: 60,
                     child: ElevatedButton(
                       onPressed: () {
-                        dodaj();
+                        dzialanie("dodaj");
                       },
                       child: Text("+",
                           style: TextStyle(
@@ -119,7 +151,7 @@ class MyAppState extends State<MyHomePage> {
                     height: 60,
                     child: ElevatedButton(
                         onPressed: () {
-                          //button nacisniety
+                          dzialanie("odejmij");
                         },
                         child: Text("-",
                             style: TextStyle(
@@ -131,7 +163,7 @@ class MyAppState extends State<MyHomePage> {
                     height: 60,
                     child: ElevatedButton(
                         onPressed: () {
-                          //button nacisniety
+                          dzialanie("pomnoz");
                         },
                         child: Text("*",
                             style: TextStyle(
@@ -143,7 +175,7 @@ class MyAppState extends State<MyHomePage> {
                     height: 60,
                     child: ElevatedButton(
                         onPressed: () {
-                          //button nacisniety
+                          dzialanie("dziel");
                         },
                         child: Text("/",
                             style: TextStyle(
